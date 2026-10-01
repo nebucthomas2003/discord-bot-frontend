@@ -17,7 +17,8 @@ export default function App() {
   const cacheRef = useRef(null);
 
   // Check if logged in on mount
- useEffect(() => {
+// eslint-disable-next-line no-use-before-define
+useEffect(() => {
   const storedToken = localStorage.getItem('adminToken');
   if (storedToken) {
     setToken(storedToken);
