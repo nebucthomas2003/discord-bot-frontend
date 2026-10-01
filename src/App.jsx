@@ -18,6 +18,7 @@ export default function App() {
 
   // Check if logged in on mount
 // eslint-disable-next-line no-use-before-define
+/* eslint-disable-next-line react-hooks/exhaustive-deps, no-use-before-define */
 useEffect(() => {
   const storedToken = localStorage.getItem('adminToken');
   if (storedToken) {
