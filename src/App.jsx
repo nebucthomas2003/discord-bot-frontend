@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './App.css';
 
@@ -19,14 +20,17 @@ export default function App() {
   // Check if logged in on mount
 // eslint-disable-next-line no-use-before-define
 /* eslint-disable-next-line react-hooks/exhaustive-deps, no-use-before-define */
-useEffect(() => {
-  const storedToken = localStorage.getItem('adminToken');
-  if (storedToken) {
-    setToken(storedToken);
-    setIsLoggedIn(true);
-    fetchCommands(storedToken, false);
-  }
-}, [fetchCommands]);
+  // Check if logged in on mount
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+   // Check if logged in on mount
+  useEffect(() => { // eslint-disable-line react-hooks/exhaustive-deps
+    const storedToken = localStorage.getItem('adminToken');
+    if (storedToken) {
+      setToken(storedToken);
+      setIsLoggedIn(true);
+      fetchCommands(storedToken, false);
+    }
+  }, []);
 
   // Fetch commands with caching
   const fetchCommands = useCallback(async (t, forceRefresh = false) => {
