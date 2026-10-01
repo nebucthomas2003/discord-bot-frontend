@@ -17,15 +17,14 @@ export default function App() {
   const cacheRef = useRef(null);
 
   // Check if logged in on mount
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    const storedToken = localStorage.getItem('adminToken');
-    if (storedToken) {
-      setToken(storedToken);
-      setIsLoggedIn(true);
-      fetchCommands(storedToken, false);
-    }
-  }, []);
+ useEffect(() => {
+  const storedToken = localStorage.getItem('adminToken');
+  if (storedToken) {
+    setToken(storedToken);
+    setIsLoggedIn(true);
+    fetchCommands(storedToken, false);
+  }
+}, [fetchCommands]);
 
   // Fetch commands with caching
   const fetchCommands = useCallback(async (t, forceRefresh = false) => {
